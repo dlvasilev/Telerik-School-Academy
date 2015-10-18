@@ -1,0 +1,6 @@
+E:\Telerik\Telerik School Academy 2014-2015\CSharp Part 1\3-Operators-Expressions-and-Statements\5. ThirdBit\bin\Debug\_5.ThirdBit.exe.config
+E:\Telerik\Telerik School Academy 2014-2015\CSharp Part 1\3-Operators-Expressions-and-Statements\5. ThirdBit\bin\Debug\_5.ThirdBit.exe
+E:\Telerik\Telerik School Academy 2014-2015\CSharp Part 1\3-Operators-Expressions-and-Statements\5. ThirdBit\bin\Debug\_5.ThirdBit.pdb
+E:\Telerik\Telerik School Academy 2014-2015\CSharp Part 1\3-Operators-Expressions-and-Statements\5. ThirdBit\obj\Debug\5. ThirdBit.csprojResolveAssemblyReference.cache
+E:\Telerik\Telerik School Academy 2014-2015\CSharp Part 1\3-Operators-Expressions-and-Statements\5. ThirdBit\obj\Debug\_5.ThirdBit.exe
+E:\Telerik\Telerik School Academy 2014-2015\CSharp Part 1\3-Operators-Expressions-and-Statements\5. ThirdBit\obj\Debug\_5.ThirdBit.pdb

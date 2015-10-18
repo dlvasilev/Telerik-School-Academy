@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Exercise 1</title>
+	<script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../Scripts/class.js"></script>
+	<script type="text/javascript" src="../Scripts/underscore.min.js"></script>
+</head>
+<body>
+	<h3>Exercise 1</h3>
+	<p>Write a method that from a given array of students</p>
+	<p>finds all students whose first name is before its last name alphabetically.</p>
+	<p>Print the students in descending order by full name. Use Underscore.js</p>
+    <h3>Look in the Console</h3>
+	<script>
+		 var Student = Class.create({
+            init: function (firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                return this;
+            },
+            toString: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        });
+
+        var students = [
+		  new Student("Doncho", "Minkov"),
+		  new Student("Daniel", "Vasilev"),
+		  new Student("Joro", "Georgiev"),
+		  new Student("Ivaylo", "Kenov"),
+		  new Student("Niki", "Kostov"),
+		  new Student("Svetlin", "Nakov")
+        ];
+
+        var sortedFilteredStudents = _.chain(students)
+           .filter(function (s) {
+           return s.firstName.localeCompare(s.lastName) < 0;
+           })
+           .sortBy(function (s) {
+               return s.toString();
+           })
+           .value().reverse();
+
+        console.log(sortedFilteredStudents.join(", "));
+	</script>
+</body>
+</html>

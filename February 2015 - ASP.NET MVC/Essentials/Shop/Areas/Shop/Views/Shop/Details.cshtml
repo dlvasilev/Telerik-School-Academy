@@ -1,0 +1,16 @@
+﻿@model Shop.Areas.Shop.Models.Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <strong>Name: @Model.Name</strong><br />
+    Description<em>: @Model.Description</em><br />
+    Price<em>: @Model.Price</em><br />
+    Category<em>: @Model.Category</em><br />
+    Inserted on<em>: @Model.CreatedOn</em><br /><br />
+    @Html.ActionLink("Edit", "Edit", new { Id = @Model.Id })
+    @Html.ActionLink("Delete", "DeleteProduct", new { Id = @Model.Id})
+</div>

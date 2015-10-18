@@ -1,0 +1,98 @@
+﻿@model Twitter.Data.Models.ApplicationUser
+<hr />
+<div class="container target">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1>
+                @Html.DisplayFor(model => model.UserName)
+            </h1>
+            @if (@Model.UserName != User.Identity.Name)
+            {
+                bool buttonApear = true;
+                if (Model.Followers.Count != 0)
+                {
+                    foreach (var item in Model.Followers)
+                    {
+                        if (item.UserName == User.Identity.Name && buttonApear)
+                        {
+                            @Html.ActionLink("Unfollow", "Unfollow", "Profile", new { id = Model.Id }, new { @class = "btn btn-warning" })
+                            buttonApear = false;
+                        }
+                        else if (item.UserName != User.Identity.Name && buttonApear)
+                        {
+                            @Html.ActionLink("Follow me", "Follow", "Profile", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                            buttonApear = false;
+                        }
+                    }
+                }
+                else
+                {
+                    @Html.ActionLink("Follow me", "Follow", "Profile", new { id = Model.Id }, new { @class = "btn btn-primary" })
+                }
+            }
+            <br>
+        </div>
+        <div class="col-sm-2">
+            @if (Model.IsAdmin)
+            {
+                <img src="~/Content/img/admin-icon.png" class="img-thumbnail" />
+            }
+            else
+            {
+                <img src="~/Content/img/user-default-img.jpg" class="img-thumbnail" />
+            }
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <ul class="list-group">
+                <li class="list-group-item text-muted" contenteditable="false">
+                    Profile
+                </li>
+                <li class="list-group-item text-right">
+                    <span class="pull-left">
+                        <strong class="">
+                            Username
+                        </strong>
+                    </span>
+                    @Model.UserName.ToString().Substring(0, Model.UserName.ToString().IndexOf("@"))
+                </li>
+                <li class="list-group-item text-right">
+                    <span class="pull-left">
+                        <strong class="">Joined</strong>
+                    </span>
+                    <span>
+                        @Html.DisplayFor(m => Model.CreatedOn)
+                    </span>
+                </li>
+            </ul>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Followers
+                </div>
+                <div class="panel-body">
+                    <i class="fa fa-facebook fa-2x">
+                        @Html.Action("SelectFollowers", "Profile", new { id = Model.Id })
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9" contenteditable="false">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Tweets
+                </div>
+                <div class="panel-body">
+                    <i class="fa fa-facebook fa-2x">
+                        @Html.Action("CreateTweetForm", "Profile", new { id = Model.Id })
+                    </i>
+                    <hr />
+                    <i class="fa fa-facebook fa-2x">
+                        @Html.Action("SelectTweets", "Profile", new { id = Model.Id })
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

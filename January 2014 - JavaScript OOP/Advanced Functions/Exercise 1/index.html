@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Exercise 1</title>
+</head>
+<body>
+	<h2>Задача: </h2>
+	<p>Create a module for working with DOM. The module should have the following functionality</p>
+	<p>Add DOM element to parent element given by selector</p>
+	<p>Remove element from the DOM  by given selector</p>
+	<p>Attach event to given selector by given event type and event hander</p>
+	<p>Add elements to buffer, which appends them to the DOM when their count for some selector becomes 100</p>
+	<p>The buffer contains elements for each selector it gets</p>
+	<p>Get elements by CSS selector</p>
+	<p>The module should reveal only the methods</p>
+
+
+	<p>Аppends div to #wrapper</p>
+	<p>domModule.appendChild(div,"#wrapper"); </p>
+
+	<p>Removes li:first-child from ul</p>
+	<p>domModule.removeChild("ul","li:first-child"); </p>
+	
+	<p>Add handler to each a element with class button</p>
+	<p>domModule.addHandler("a.button", 'click', function(){alert("Clicked")});</p>
+	<p>domModule.appendToBuffer("container", div.cloneNode(true));</p>
+	<p>domModule.appendToBuffer("#main-nav ul", navItem);</p>
+
+
+	<h2>here is it:</h2>
+    <ul>
+        <li>First item</li>
+        <li>Second item</li>
+    </ul>
+    <div>
+        <p>Opa</p>
+    </div>
+    <script>
+        var domModule = (function () {
+            var elArray = [];
+            var nodesArray = [];
+            var countBuff = 0;
+
+            function addElementToPerrent(selector, element, text) {
+                var el = document.querySelector(selector);
+                var node = document.createElement(element);
+                node.innerHTML = text;
+                el.appendChild(node);
+            }
+
+            function removeElement(selector) {
+                var el = document.querySelector(selector);
+                el.parentNode.removeChild(el);
+            }
+
+            function eventAttach(selector, eventType, eventHandler) {
+                document.querySelector(selector).addEventListener(eventType, eventHandler, false);
+            }
+
+
+            function appendToBuffer(selector, element, count, text) {
+                elArray.push(document.querySelector(selector));
+
+                for (var c = countBuff; c < count + countBuff; c++) {
+                    nodesArray.push(document.createElement(element));
+                    nodesArray[c].innerHTML = text;
+                }
+
+                countBuff += count;
+
+                if (countBuff >= 100) {
+                    for (var i = 0; i < elArray.length; i++) {
+                        for (var c = 0; c < nodesArray.length; c++) {
+                            elArray[i].appendChild(nodesArray[c]);
+                        }
+                    }
+                }
+            }
+            return {
+                appendToBuffer: appendToBuffer,
+                addElementToPerrent: addElementToPerrent,
+                removeElement: removeElement,
+                eventAttach: eventAttach,
+                getElement: function (selector) {
+                    return document.querySelector(selector);
+                },
+                getElements: function (selector) {
+                    return document.querySelectorAll(selector);
+                }
+            };
+        })();
+
+        domModule.addElementToPerrent("div", "p", "This is new !");
+        domModule.eventAttach("p", 'click', function () {
+            alert('Clicked');
+        })
+        domModule.appendToBuffer("div", "p", 10, "This 10 p buffer");
+        domModule.appendToBuffer("div", "p", 90, "This 90 p buffer");
+
+    </script>
+</body>
+</html>

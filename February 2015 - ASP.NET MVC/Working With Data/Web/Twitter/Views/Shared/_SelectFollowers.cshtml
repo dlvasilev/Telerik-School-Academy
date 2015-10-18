@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Twitter.Data.Models.Follower>
+
+@if (Model.Any())
+{
+    <div class="list-group bottom-margin">
+        @foreach (var follower in Model)
+        {
+            @Html.ActionLink(follower.UserName, null, null, new { @class = "list-group-item" })
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-danger bottom-margin" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        There are no followers of current user
+    </div>
+    <a href="javascript:history.back()">Back to List</a>
+}

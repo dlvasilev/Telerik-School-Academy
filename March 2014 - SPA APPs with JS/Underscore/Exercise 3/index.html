@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Exercise 3</title>
+	<script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../Scripts/class.js"></script>
+	<script type="text/javascript" src="../Scripts/underscore.min.js"></script>
+</head>
+<body>
+	<h3>Exercise 3</h3>
+	<p>Write a function that by a given array of students finds the student with highest marks.</p>
+    <h3>Look in the Console</h3>
+	<script>
+		 var Student = Class.create({
+            init: function (firstName, lastName, age, marks) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                this.marks = marks;
+                return this;
+            },
+
+            getAverageMark: function () {
+                return _.reduce(this.marks, function (a, b) {
+                    return a + b;
+                }) / this.marks.length;
+            },
+
+            toString: function () {
+                return this.firstName +
+                    " " + this.lastName +
+                    "(age: " + this.age + "), avg: "
+                    + this.getAverageMark();
+            }
+        });
+
+        var students = [
+          new Student("Doncho", "Minkov", 23, [4, 5, 5, 6, 6]),
+          new Student("Daniel", "Vasilev", 18, [6, 5, 4, 6, 6]),
+          new Student("Joro", "Georgiev", 24, [6, 3, 2, 3, 6]),
+          new Student("Ivaylo", "Kenov", 16, [4, 3, 5, 6, 5]),
+          new Student("Niki", "Kostov", 26, [4, 5, 4, 6, 6]),
+          new Student("Svetlin", "Nakov", 40, [2, 3, 5, 6, 3])
+        ];
+
+        var bestStudent = _.max(students, function (s) {
+           return s.getAverageMark();
+        });
+
+        console.log(bestStudent.toString());
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+#container li {
+	background: url(sprite.png) no-repeat top left;
+    display: inline-block;
+    list-style: none;
+    margin: 10px;
+    padding-top: 20px;
+}
+#container .sprite-comment{ background-position: 0 0; width: 60px;height: 20px; } 
+#container .sprite-comment_add{ background-position: 0 -66px; width: 60px;height: 20px; } 
+#container .sprite-comment_delete{ background-position: 0 -132px; width: 60px;height: 20px; } 
+#container .sprite-comment_edit{ background-position: 0 -198px; width: 60px;height: 20px; } 
+#container .sprite-comments{ background-position: 0 -264px; width: 60px;height: 20px; } 
+#container .sprite-comments_add{ background-position: 0 -330px; width: 60px;height: 20px; } 
+#container .sprite-comments_delete{ background-position: 0 -396px; width: 60px;height: 20px; } 
+#container .sprite-folder{ background-position: 0 -462px; width: 60px;height: 20px; } 
+#container .sprite-folder_add{ background-position: 0 -528px; width: 60px;height: 20px; } 
+#container .sprite-folder_delete{ background-position: 0 -594px; width: 60px;height: 20px; } 
+#container .sprite-folder_edit{ background-position: 0 -660px; width: 60px;height: 20px; } 
+#container .sprite-group{ background-position: 0 -726px; width: 60px;height: 20px; } 
+#container .sprite-group_add{ background-position: 0 -792px; width: 60px;height: 20px; } 
+#container .sprite-group_delete{ background-position: 0 -858px; width: 60px;height: 20px; } 
+#container .sprite-group_edit{ background-position: 0 -924px; width: 60px;height: 20px; } 
+#container .sprite-page_white{ background-position: 0 -990px; width: 60px;height: 20px; } 
+#container .sprite-page_white_acrobat{ background-position: 0 -1056px; width: 60px;height: 20px; } 
+#container .sprite-page_white_actionscript{ background-position: 0 -1122px; width: 60px;height: 20px; } 
+#container .sprite-page_white_add{ background-position: 0 -1188px; width: 60px;height: 20px; } 
+#container .sprite-page_white_c{ background-position: 0 -1254px; width: 60px;height: 20px; } 
+#container .sprite-page_white_camera{ background-position: 0 -1320px; width: 60px;height: 20px; } 
+#container .sprite-page_white_cplusplus{ background-position: 0 -1386px; width: 60px;height: 20px; } 
+#container .sprite-page_white_csharp{ background-position: 0 -1452px; width: 60px;height: 20px; } 
+#container .sprite-page_white_cup{ background-position: 0 -1518px; width: 60px;height: 20px; } 
+#container .sprite-page_white_delete{ background-position: 0 -1584px; width: 60px;height: 20px; } 
+#container .sprite-page_white_edit{ background-position: 0 -1650px; width: 60px;height: 20px; } 
+#container .sprite-page_white_excel{ background-position: 0 -1716px; width: 60px;height: 20px; } 
+#container .sprite-page_white_php{ background-position: 0 -1782px; width: 60px;height: 20px; } 
+#container .sprite-page_white_powerpoint{ background-position: 0 -1848px; width: 60px;height: 20px; } 
+#container .sprite-page_white_ruby{ background-position: 0 -1914px; width: 60px;height: 20px; } 
+#container .sprite-user{ background-position: -116px 0; width: 60px;height: 20px; } 
+#container .sprite-user_add{ background-position: -116px -66px; width: 60px;height: 20px; } 
+#container .sprite-user_delete{ background-position: -116px -132px; width: 60px;height: 20px; } 
+#container .sprite-user_edit{ background-position: -116px -198px; width: 60px;height: 20px; } 

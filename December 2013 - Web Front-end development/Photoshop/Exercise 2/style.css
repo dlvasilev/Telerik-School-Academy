@@ -1,0 +1,122 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+#container {
+	width: 750px;
+	margin: 100px auto;
+}
+#left-col {
+	width: 510px;
+	display: inline-block;
+	vertical-align: top;
+}
+#right-col {
+	width: 200px;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
+}
+.big-img {
+	width: 500px;
+	height: 400px;
+	padding-bottom: 9px;
+	padding-right: 9px;
+	position: relative;
+}
+.big-img img {
+	width: 500px;
+	height: 400px;
+}
+.big-bottom-center {
+	height: 9px;
+	position: absolute;
+	width: 500px;
+	bottom: 0px;
+	left: 9px;
+	background: url(images/bottomcenter.png) repeat-x;
+}
+.big-bottom-left-corner {
+	position: absolute;
+	height: 9px;
+	width: 9px;
+	bottom: 0px;
+	left: 0px;
+	background: url(images/bottomleftcorner.png) no-repeat;
+}
+.big-bottom-right-corner {
+	position: absolute;
+	height: 9px;
+	width: 9px;
+	bottom: 0px;
+	right: 0px;
+	background: url(images/bottomrightcorner.png) no-repeat;
+}
+.big-right-center {
+	position: absolute;
+	height: 391px;
+	width: 9px;
+	top: 9px;
+	right: 0px;
+	background: url(images/rightcenter.png) repeat-y;
+}
+.big-top-right-corner {
+	position: absolute;
+	height: 9px;
+	width: 9px;
+	top: 0px;
+	right: 0px;
+	background: url(images/toprightcorner.png) no-repeat;
+}
+.small-img {
+	width: 150px;
+	height: 100px;
+	padding-bottom: 9px;
+	padding-right: 9px;
+	position: relative;
+	margin-bottom: 42px;
+}
+.small-img img {
+	width: 150px;
+	height: 100px;
+}
+.small-bottom-center {
+	height: 9px;
+	position: absolute;
+	width: 150px;
+	bottom: 0px;
+	left: 9px;
+	background: url(images/bottomcenter.png) repeat-x;
+}
+.small-bottom-left-corner {
+	position: absolute;
+	height: 9px;
+	width: 9px;
+	bottom: 0px;
+	left: 0px;
+	background: url(images/bottomleftcorner.png) no-repeat;
+}
+.small-bottom-right-corner {
+	position: absolute;
+	height: 9px;
+	width: 9px;
+	bottom: 0px;
+	right: 0px;
+	background: url(images/bottomrightcorner.png) no-repeat;
+}
+.small-right-center {
+	position: absolute;
+	height: 91px;
+	width: 9px;
+	top: 9px;
+	right: 0px;
+	background: url(images/rightcenter.png) repeat-y;
+}
+.small-top-right-corner {
+	position: absolute;
+	height: 9px;
+	width: 9px;
+	top: 0px;
+	right: 0px;
+	background: url(images/toprightcorner.png) no-repeat;
+}

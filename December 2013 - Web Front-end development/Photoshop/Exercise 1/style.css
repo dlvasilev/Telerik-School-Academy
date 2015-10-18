@@ -1,0 +1,36 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+button {
+	background: url(images/button.gif) 0 0 no-repeat;
+	height: 60px;
+	line-height: 55px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 200px;
+	font-size: 18px;
+	border: none;
+}
+button:first-child{
+	margin-right: 95px;
+}
+a {
+	display: block;
+	background: url(images/link.png) 0 0 no-repeat;
+	height: 60px;
+	line-height: 55px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 500px;
+	font-size: 18px;
+	border: none;
+	color: #000;
+	text-align: center;
+	text-decoration: none;
+	font-family: Verdana;
+}
+#content {
+	width: 500px;
+	margin: 20% auto;
+}

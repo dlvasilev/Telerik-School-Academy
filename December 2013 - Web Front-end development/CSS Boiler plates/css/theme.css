@@ -1,0 +1,55 @@
+body {
+	padding-top: 70px;
+	padding-bottom: 30px;
+	font-family: "Arial", sans-serif;
+
+}
+.footer {
+	margin-top: 30px;
+	padding-top: 20px;
+	width: 100%;
+	border-top: 1px solid #2b2e32;
+	padding-bottom: 50px;
+	color: #fff;
+	font-family: "Arial", sans-serif;
+	font-size: 13px;
+}
+.footer-copy {
+	padding-top: 20px;
+	text-align: center;
+}
+.footer-nav .heading {
+	font-family: "News Cycle", "Arial Narrow Bold", "Arial", sans-serif;
+	font-size: 16px;
+}
+.footer-nav .nav-divider {
+	height: 1px;
+	margin: 9.5px 0;
+	overflow: hidden;
+	background-color: #e5e5e5;
+}
+.footer-nav {
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+}
+.footer-nav:before,
+.footer-nav:after {
+  display: table;
+  content: " ";
+}
+
+.footer-nav:after {
+  clear: both;
+}
+
+.footer-nav > li {
+  position: relative;
+  display: block;
+}
+
+.footer-nav > li > a {
+  position: relative;
+  display: block;
+  color: #fff;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise 6</title>
+	<script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+	<script>
+		var persons = [
+						{firstname: "Gosho", lastname: "Petrov", age: 32}, 
+						{firstname: "Bay", lastname: "Ivan", age: 81},
+						{firstname: "Penka", lastname: "Mustaka", age: 18},
+						{firstname: "Roni", lastname: "Rezachakta", age: 22}
+					];
+
+		function deepCopy(obj)
+		{
+			var obj2 = new Array();
+			for(key in obj)
+			{
+				var c = key;
+				obj2[c]=obj[key];
+				if((typeof obj2[c]) == "object" || (typeof obj2[c]) == "Object"){
+					deepCopy(obj[key]);
+				}
+			}
+			return obj2;
+		}
+
+		function group(array, by){
+			function groupByAge(){
+				var arr = deepCopy(array);
+				for(var i = 0;i<arr.length;i++){
+					for(var ii = i+1;ii<arr.length;ii++){
+						if(arr[i].age > arr[ii].age){
+							var temp = arr[i];
+							arr[i] = arr[ii];
+							arr[ii] = temp;
+						}
+					}
+				}
+				return arr;
+			}
+			function groupByFirstname(){
+				var arr = deepCopy(array);
+				for(var i = 0;i<arr.length;i++){
+					for(var ii = i+1;ii<arr.length;ii++){
+						if(arr[i].firstname > arr[ii].firstname){
+							var temp = arr[i];
+							arr[i] = arr[ii];
+							arr[ii] = temp;
+						}
+					}
+				}
+				return arr;
+			}
+			function groupByLastname(){
+				var arr = deepCopy(array);
+				for(var i = 0;i<arr.length;i++){
+					for(var ii = i+1;ii<arr.length;ii++){
+						if(arr[i].lastname > arr[ii].lastname){
+							var temp = arr[i];
+							arr[i] = arr[ii];
+							arr[ii] = temp;
+						}
+					}
+				}
+				return arr;
+			}
+			switch(by){
+				case "age": return groupByAge(); break;
+				case "firstname": return groupByFirstname(); break;
+				case "lastname": return groupByLastname(); break;
+				default: return "Wrong command"; break;
+			}
+		}
+		console.log("The original array:");
+		console.log(persons);
+
+		var groupedByAge = group(persons, "age");
+		console.log('After using group(persons, "age")');
+		console.log(groupedByAge);
+
+		var groupedByFirstname = group(persons, "firstname");
+		console.log('After using group(persons, "firstname")');
+		console.log(groupedByFirstname);
+
+		var groupedByLastname = group(persons, "lastname");
+		console.log('After using group(persons, "lastname")');
+		console.log(groupedByLastname);
+	</script>
+</head>
+<body>
+	<p>Look at console ;)</p>
+</body>
+</html>

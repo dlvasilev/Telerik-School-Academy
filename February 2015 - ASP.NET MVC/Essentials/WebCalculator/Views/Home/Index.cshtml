@@ -1,0 +1,45 @@
+﻿@model IList<SelectListItem>
+@{
+    ViewBag.Title = "Home Page";
+
+}
+<br />
+<img src="~/Content/image/binaryIcon.png" alt="" />
+<h3>Bit Calculator</h3><br /><br />
+
+@using (Ajax.BeginForm("CalculateResult", null, new AjaxOptions
+    {
+        UpdateTargetId = "results",
+        InsertionMode = InsertionMode.Replace
+    }, new { id = "calculateForm"}))
+{
+    <div class="form-group">
+        @Html.Label("Quantity:")
+        @Html.TextBox("Quantity", null, new { @class = "form-control", id = "quantity", oninput = "changed()" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Kilo:")
+        @Html.DropDownList("Kilo",
+            new List<SelectListItem>()
+                {
+                    new SelectListItem() {Text="1024", Value="1024"},
+                    new SelectListItem() {Text="1000", Value="1000"},
+                }, new { @class = "form-control", oninput = "changed()" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Type:")
+        @Html.DropDownList("Type", Model, new { @class = "form-control", oninput = "changed()" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+}
+
+<br />
+<script>
+    function changed() {
+        $("#calculateForm").submit();
+    }
+</script>
+<div id="results">
+</div>

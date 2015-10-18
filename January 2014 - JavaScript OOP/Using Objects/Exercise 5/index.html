@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise 5</title>
+	<script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+	<script>
+		var persons = [
+						{firstname: "Gosho", lastname: "Petrov", age: 32}, 
+						{firstname: "Bay", lastname: "Ivan", age: 81},
+						{firstname: "Penka", lastname: "Mustaka", age: 18},
+						{firstname: "Roni", lastname: "Rezachakta", age: 22}
+					],
+			minAge = persons[0].age,
+			personId = 0;
+			
+		console.log("The array is: ");
+		console.log(persons);
+		console.log("");
+
+		for(var i = 1;i<persons.length;i++){
+			if(minAge > persons[i].age){
+				minAge = persons[i].age;
+				personId = i;
+			}
+		}
+		console.log("The youngest person is: "+persons[personId].firstname+" "+persons[personId].lastname+" and she/he is "+persons[personId].age+" years old");
+	</script>
+</head>
+<body>
+	<p>Look at console ;)</p>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Exercise 6</title>
+	<script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../Scripts/class.js"></script>
+	<script type="text/javascript" src="../Scripts/underscore.min.js"></script>
+</head>
+<body>
+	<h3>Exercise 6</h3>
+	<p>By a given collection of books, find the most popular author (the author with the biggest number of books)</p>
+  <h3>Look in the Console</h3>
+	<script>
+        var Book = Class.create({
+            init: function (title, author) {
+                this.title = title;
+                this.author = author;
+                return this;
+            },
+
+            toString: function () {
+                return "title: " + this.title + " author: " + this.author;
+            }
+        });
+
+        var books = [
+            new Book("Leviathan", "Thomas Hobbes"),
+            new Book("The Prince", "Niccolò Machiavelli"),
+            new Book("Discourses on Livy", "Niccolò Machiavelli"),
+            new Book("Candide", "Voltaire"),
+            new Book("The Maid of Orleans", "Voltaire"),
+            new Book("The Man of Forty Pieces of Silver", "Voltaire"),
+            new Book("War and Peace", "Leo Tolstoy"),
+            new Book("The Cossacks", "Leo Tolstoy")
+        ];
+
+        var maxBooksAuthor = _.max(_.groupBy(books, "author"), function (books) {
+           return books.length;
+        });
+        console.log(maxBooksAuthor[0].author + ": " + maxBooksAuthor.length + " books");
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "DeleteProduct";
+}
+
+<h2>DeleteProduct</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelProduct => product.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

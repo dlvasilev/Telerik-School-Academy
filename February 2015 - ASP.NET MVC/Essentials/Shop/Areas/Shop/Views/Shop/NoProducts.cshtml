@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "_NoProducts";
+}
+
+<h2>No Products</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Category
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                No product
+            </td>
+            <td>
+                No product
+            </td>
+            <td>
+                No product
+            </td>
+            <td>
+                No product
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="text-center">
+    @Html.ActionLink("Add product", "AddProduct", null, new { @class = "btn btn-warning text-center" })
+</div>

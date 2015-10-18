@@ -1,0 +1,51 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+#menu {
+	position: relative;
+	width: 487px;
+	margin: 200px auto;
+	height: 50px;
+	padding: 0 7px;
+}
+.leftside {
+	position: absolute;
+	top: 0;
+	left: 1px;
+	width: 7px;
+	height: 50px;
+	display: inline-block;
+	background: url(images/leftside.png) no-repeat;
+}
+.rightside {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 7px;
+	height: 50px;
+	display: inline-block;
+	background: url(images/rightside.png) no-repeat;
+}
+a {
+	background: url(images/center.png) repeat-x;
+	display: inline-block;
+	height: 50px;
+	margin: 0;
+	color: #a7162e;
+	text-transform: uppercase;
+	line-height: 50px;
+	font-family: Verdana;
+	text-decoration: none;
+	padding-left: 15px;
+	padding-right: 15px;
+	vertical-align: top;
+}
+.divider{
+	height: 50px;
+	width: 1px;
+	display: inline-block;
+	background: url(images/divider.png) no-repeat;
+	margin-left: -4px;
+	margin-right: -4px;
+}

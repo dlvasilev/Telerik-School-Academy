@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>Exercise 7</title>
+	<script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../Scripts/class.js"></script>
+	<script type="text/javascript" src="../Scripts/underscore.min.js"></script>
+</head>
+<body>
+	<h3>Exercise 7</h3>
+	<p>By an array of people find the most common first and last name. Use underscore.</p>
+  <h3>Look in the Console</h3>
+	<script>
+		 var Student = Class.create({
+            init: function (firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                return this;
+            },
+            toString: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        });
+
+        var students = [
+    		  new Student("Doncho", "Minkov"),
+          new Student("Svetlin", "Nakov"),
+          new Student("Ivaylo", "Georgiev"),
+    		  new Student("Daniel", "Vasilev"),
+    		  new Student("Joro", "Georgiev"),
+    		  new Student("Ivaylo", "Kenov"),
+    		  new Student("Niki", "Kostov"),
+    		  new Student("Doncho", "Nakov"),
+          new Student("Daniel", "Vasilev"),
+          new Student("Svetlin", "Minkov"),
+          new Student("Niki", "Georgiev"),
+          new Student("Doncho", "Georgiev"),
+        ];
+
+        var maxFirstName = _.max(_.groupBy(students, "firstName"), function (students) {
+            return students.length;
+        });
+        console.log(maxFirstName[0].firstName + ": " + maxFirstName.length + " times");
+
+        var maxLastName = _.max(_.groupBy(students, "lastName"), function (students) {
+            return students.length;
+        });
+        console.log(maxLastName[0].lastName + ": " + maxLastName.length + " times");
+	</script>
+</body>
+</html>

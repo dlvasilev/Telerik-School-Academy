@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise 3</title>
+	<script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+	<script>
+		function deepCopy(obj)
+		{
+			var obj2 = new Object();
+			for( key in obj)
+			{
+				var c= key;
+				obj2[c]=obj[key];
+				if((typeof obj2[c]) == "object" || (typeof obj2[c]) == "Object"){
+					deepCopy(obj[key]);
+				}
+			}
+			return obj2;
+		}
+		function printObj(obj)
+		{
+			var result="";
+			for(key in obj)
+			{
+				console.log("Property "+key+": "+obj[key]+",Type: "+typeof(obj[key]));
+				if(typeof(obj[key])=="object")
+				{
+					printObj(obj[key]);
+				}
+			}
+		}
+
+		var array= [1,2,"3"];
+		var obj1={one:"11",two:2,three:{x:1,y:{z:8,p:9}},four:"4"};
+		var obj3 = {five:5,six:6,ob:{ob_seven:7,ob_eight:8},nine:"9",b:array};
+		var obj2=deepCopy(obj1);
+		printObj(obj1);
+		printObj(obj2);
+		var obj4=deepCopy(obj3);
+		printObj(obj3);
+		printObj(obj4);
+	</script>
+</head>
+<body>
+	<p>Look at console ;)</p>
+</body>
+</html>

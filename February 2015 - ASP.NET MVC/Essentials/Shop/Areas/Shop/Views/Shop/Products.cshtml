@@ -1,0 +1,52 @@
+﻿@model List<Shop.Areas.Shop.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+
+@Html.ActionLink("Add product", "AddProduct", "Shop")
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Category
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelProduct => product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelProduct => product.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelProduct => product.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelProduct => product.Category)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { Id = product.Id}) | 
+                    @Html.ActionLink("Details", "Details", new { Id = product.Id}) | 
+                    @Html.ActionLink("Delete", "DeleteProduct", new { Id = product.Id})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

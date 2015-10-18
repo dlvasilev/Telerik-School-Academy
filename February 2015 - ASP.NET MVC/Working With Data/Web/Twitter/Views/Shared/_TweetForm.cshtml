@@ -1,0 +1,21 @@
+﻿@model Twitter.Data.Models.Tweet
+
+@using (Ajax.BeginForm("CreateTweet", new AjaxOptions
+{
+    UpdateTargetId = "results",
+    InsertionMode = InsertionMode.InsertAfter
+}))
+{
+    <div class="list-group">
+        <a href="#" class="list-group-item">
+            <span class="list-group-item-text form-inline">
+                @Html.EditorFor(m => Model.Text, new { htmlAttributes = new { @class = "form-control", placeholder = "What's happening" } })
+            </span>
+            <span class="list-group-item-text">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </span>
+        </a>
+    </div>
+}
+
+<div id="results"></div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise 1</title>
+	<script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+	<script>
+	var planar = {
+		line: function line(x1, y1, x2, y2) {
+	    	return "Line start at (" + x1 + ";" + y1 + ") and end at (" + x2 + ";" + y2 + "), and its long " +  Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+	    },
+		point: function pointCoordinates(x, y) {
+	    	return "Point on position: (" + x + ";" + y + ")";
+	    },
+	    triangle: function line(x11, y11, x12, y12, x21, y21, x22, y22, x31, y31, x32, y32) {
+	    	var l1 = Math.sqrt((x12-x11)*(x12-x11) + (y12-y11)*(y12-y11)),
+	    		l2 = Math.sqrt((x22-x21)*(x22-x21) + (y22-y21)*(y22-y21)),
+	    		l3 = Math.sqrt((x32-x31)*(x32-x31) + (y32-y31)*(y32-y31)),
+	    		form = false,
+	    		max = l1;
+    		if(max < l2) max = l2;
+    		if(max < l3) max = l3;
+	    	if(max <= l1 + l2){
+	    		form = true;
+	    	}
+	    	return "First Line starts at (" + x11 + ";" + y11 + ") and end at (" + x12 + ";" + y12 + "), Second Line starts at (" + x21 + ";" + y21 + ") and end at (" + x22 + ";" + y22 + ") and The third Line starts at (" + x31 + ";" + y31 + ") and end at (" + x32 + ";" + y32 + "). They can form triange = " + form;
+	    }
+	}
+
+	console.log(planar.point(13,2));
+	console.log(planar.line(10,5,15,5));
+	console.log(planar.triangle(10,5,15,5,15,5,20,5,10,5,20,5));
+	</script>
+</head>
+<body>
+	<p>Look at console ;)</p>
+	<p>Define point use planar.point(x1,y1);</p>
+	<p>Define line use planar.line(x1,y1,x2,y2)</p>
+	<p>Define three lines to form triangle use planar.triangle(x11, y11, x12, y12, x21, y21, x22, y22, x31, y31, x32, y32)</p>
+</body>
+</html>

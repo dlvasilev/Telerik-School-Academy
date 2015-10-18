@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Exercise 2</title>
+	<script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../Scripts/class.js"></script>
+	<script type="text/javascript" src="../Scripts/underscore.min.js"></script>
+</head>
+<body>
+	<h3>Exercise 2</h3>
+	<p>Write function that finds the first name and last name of all students with age between 18 and 24. Use Underscore.js</p>
+  <h3>Look in the Console</h3>
+	<script>
+		 var Student = Class.create({
+            init: function (firstName, lastName, age) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+                return this;
+            },
+            toString: function () {
+                return this.firstName + " " + this.lastName + "(age: " + this.age + ")";
+            }
+        });
+
+        var students = [
+          new Student("Doncho", "Minkov", 23),
+          new Student("Daniel", "Vasilev", 18),
+          new Student("Joro", "Georgiev", 24),
+          new Student("Ivaylo", "Kenov", 16),
+          new Student("Niki", "Kostov", 26),
+          new Student("Svetlin", "Nakov", 40)
+        ];
+
+        var youngStudents = _.filter(students, function (s) {
+           return 18 <= s.age && s.age <= 24;
+        });
+
+        console.log(youngStudents.join(", "));
+	</script>
+</body>
+</html>

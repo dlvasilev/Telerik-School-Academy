@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise 3</title>
+	<style>
+	.output {
+		background-color: #000;
+		width: 620px;
+		height: 480px;
+		overflow-y: scroll;
+		overflow-x: none;
+	}
+	.console-message {
+		font-family: monospace;
+		padding-left: 10px;
+	}
+	.sequrity-level-log {
+		color: white;
+	}
+	.sequrity-level-error {
+		color: red;
+	}
+	.sequrity-level-warning {
+		color: yellow;
+	}
+	</style>
+	<script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+	<script>
+	  	var specialConsole = (function () {
+		    function toString(obj) {
+		      	switch (Object.prototype.toString.call(obj).slice(8,-1)) {
+			        case 'Undefined': return 'undefined';
+			        case 'Null': return 'null';
+			        case 'Object':  var result = [];
+									result.push('{');
+
+									for (var p in obj) {
+										result.push(p + ': ' + toString(obj[p]));
+										result.push(', ');
+									}
+
+									if (result.slice(-1)[0] === ', ') {
+										result.pop();
+									}
+									result.push('}');
+									return result.join('');
+									case 'Array': var result = [];
+									result.push('[');
+
+									obj.forEach(function (item) {
+										result.push(toString(item));
+										result.push(', ');
+									});
+
+									if (result.slice(-1)[0] === ', ') {
+										result.pop();
+									}
+
+									result.push(']');
+									return result.join('');
+			        case 'String':
+			        case 'Number':
+			        case 'Boolean':
+			        case 'Date':
+			        case 'Function': return obj.toString();
+		      	}
+		    };
+
+		    function appendLine(security, message /*, formatValue1, formatValue2, ... */) {
+				message = message || '';
+
+				var el = document.createElement('div');
+
+				el.classList.add('console-message');
+				el.classList.add('sequrity-level-' + security);
+
+				var formatValues = Array.prototype.slice.call(arguments, 2);
+
+				if (formatValues) {
+					message = message.replace(/{(\d+)}/g, function (match, matchedNumber) {
+						return toString(formatValues[matchedNumber]);
+					});
+				}
+
+				el.textContent = message;
+
+				$('.output').append(el);
+		    }
+
+		    function toArray(list) {
+				return Array.prototype.slice.call(list || []);
+		    }
+
+			return {
+				writeLine: function () {
+					appendLine.apply(null, ['log'].concat(toArray(arguments)));
+				},
+				writeWarning: function () {
+					appendLine.apply(null, ['warning'].concat(toArray(arguments)));
+				},
+				writeError: function () {
+					appendLine.apply(null, ['error'].concat(toArray(arguments)));
+				}
+			};
+		})();
+	</script>
+</head>
+<body>
+	<p>Use the console...</p>
+	<p>To write normal Message: specialConsole.writeLine("Message: hello");</p>
+	<p>To write error Message: specialConsole.writeError("Error: {0}", "Something happened");</p>
+	<p>To write error Message: specialConsole.writeWarning("Warning: {0}", "A warning");</p>
+	<div class="output"></div>
+</body>
+</html>

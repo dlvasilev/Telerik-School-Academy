@@ -1,0 +1,82 @@
+﻿@using Twitter.Areas.Administration.ViewModels;
+@{
+    ViewBag.Title = "Index";
+    const string controllerName = "Admin";
+}
+
+<h2>Administration</h2>
+
+@(Html.Kendo()
+        .Grid<UserViewModel>()
+    .Name("grid-category")
+    .Columns(columns =>
+    {
+        columns.Bound(model => model.Id);
+        columns.Bound(model => model.Email);
+        columns.Bound(model => model.UserName);
+        columns.Bound(model => model.PasswordHash);
+        columns.Bound(model => model.CreatedOn);
+        columns.Bound(model => model.EmailConfirmed);
+        columns.Bound(model => model.IsAdmin);
+        columns.Command(command =>
+            {
+                command.Edit();
+                command.Destroy();
+            });
+    })
+    .ToolBar(tool => tool.Create())
+    .Pageable(page =>
+        {
+            page.PreviousNext(true);
+            page.Numeric(true);
+            page.Refresh(true);
+        })
+    .Sortable(sort =>
+        {
+            sort.AllowUnsort(false);
+            sort.SortMode(GridSortMode.SingleColumn);
+        })
+    .Groupable()
+    .Filterable()
+    .Resizable(resize => resize.Columns(true))
+    .Navigatable()
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .Selectable(select => select.Mode(GridSelectionMode.Multiple).Type(GridSelectionType.Cell))
+    .Events(ev => ev.Change("selectRow"))
+    .DataSource(data =>
+    {
+        data.Ajax()
+            .Model(model => model.Id(c => c.Id))
+            .PageSize(10)
+            .ServerOperation(true)
+            .Events(ev => ev.Error("errorAlert"))
+            .Create(create => create.Action("CreateUser", controllerName))
+            .Read(read => read.Action("ReadUsers", controllerName))
+            .Update(update => update.Action("UpdateUser", controllerName))
+            .Destroy(destroy => destroy.Action("DeleteUser", controllerName));
+    }))
+
+
+<script>
+    function selectRow() {
+        var selected = $.map(this.select(), function (item) {
+            return $(item).text();
+        });
+
+        $('#selected').text(selected);
+    }
+
+    function errorAlert() {
+        console.log("An error ocurred");
+    }
+
+    function makeActiveOnClick(tab) {
+        $(".tabs").removeClass('active');
+        $(tab).addClass('active');
+
+    }
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

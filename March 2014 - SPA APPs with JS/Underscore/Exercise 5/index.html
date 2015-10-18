@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title>Exercise 5</title>
+	<script type="text/javascript" src="../Scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../Scripts/class.js"></script>
+	<script type="text/javascript" src="../Scripts/underscore.min.js"></script>
+</head>
+<body>
+	<h3>Exercise 5</h3>
+	<p>By a given array of animals, find the total number of legs. Each animal can have 2, 4, 6, 8 or 100 legs.</p>
+  <h3>Look in the Console</h3>
+	<script>
+		 var Animal = Class.create({
+            init: function (animalClass, species, legsCount) {
+                this.animalClass = animalClass;
+                this.species = species;
+                this.legsCount = legsCount;
+                return this;
+            },
+
+            toString: function () {
+                return "class: " + this.animalClass +
+                    " species: " + this.species;
+            }
+        });
+
+    var animals = [
+      new Animal("Amphibia", "Frog", 4),
+      new Animal("Amphibia", "Siphonops paulensis", 0),
+      new Animal("Amphibia", "Diplocaulus", 0),
+      new Animal("Amphibia", "Northwestern salamander", 4),
+      new Animal("Diplopoda", "Millipede", 36),
+      new Animal("Diplopoda", "Scutigera coleoptrata", 30),
+      new Animal("Diplopoda", "Lithobius forficatus", 300),
+      new Animal("Diplopoda", "Tachypodoiulus niger", 200),
+      new Animal("Mammalia", "Goat", 4),
+      new Animal("Mammalia", "Whale", 0),
+      new Animal("Mammalia", "Monkey", 2),
+      new Animal("Mammalia", "Human", 2),
+      new Animal("Reptilia", "Sand Lizard", 4),
+      new Animal("Reptilia", "Snake", 0),
+      new Animal("Reptilia", "Crocodile", 4)
+    ];
+
+    var legsTotal = _.chain(animals).map(function (a) {
+                         return a.legsCount;
+                      }).reduce(function (a, b) {
+                         return a + b;
+                      }).value();
+
+    console.log("Total legs: " + legsTotal);
+	</script>
+</body>
+</html>

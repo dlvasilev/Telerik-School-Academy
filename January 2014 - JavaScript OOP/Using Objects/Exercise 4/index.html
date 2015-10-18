@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise 4</title>
+	<script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+	<script>
+		var obj = {
+		    Cola: undefined,
+		    Bira: null,
+		    Uchene: false
+		};
+
+		console.log("Properties of the object: ")
+		for ( var prop in obj ) {
+		    console.log( "Property: " + prop );
+		}
+
+		function hasProperty(obj,prop){
+			if(obj.hasOwnProperty(prop)){
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		console.log("Do the object have the property 'Cola': " + hasProperty(obj, "Cola"));
+		console.log("Do the object have the property 'Pizza': " + hasProperty(obj, "Pizza"));
+	</script>
+</head>
+<body>
+	<p>Look at console ;)</p>
+	<p>hasProperty(obj, "property")</p>
+</body>
+</html>

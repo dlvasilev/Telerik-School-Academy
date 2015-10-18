@@ -1,0 +1,42 @@
+{ 
+    "data":[
+        {
+            "id: 0,"
+            "name: "Daniel Vasilev",
+            "grade": 11,
+            "marks": [
+                {
+                    "subject": "Math",
+                    "score": 6
+                },
+                {
+                    "subject": "Biology",
+                    "score": 4
+                },
+                {
+                    "subject": "IT",
+                    "score": 6
+                }
+            ]
+        },
+        {
+            "id: 1,
+            "name": "Doncho Minkov",
+            "grade": 12,
+            "marks": [
+                {
+                    "subject": "Math",
+                    "score": 6
+                },
+                {
+                    "subject": "Biology",
+                    "score": 6
+                },
+                {
+                    "subject": "IT",
+                    "score": 6
+                }
+            ]
+        }
+    ]
+}
